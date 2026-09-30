@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Dept. of Geography Library</title>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Department of Geography Library</h1>
+    <p>Your gateway to the world — explore our collection of Human Geography, Physical Geography, GIS &amp; Remote Sensing resources and more.</p>
+    <a class="btn btn-light" href="/dashboard.html">Browse Catalogue</a>
+    &nbsp; <a class="btn btn-light" style="background:rgba(255,255,255,.15);color:#fff" href="/login.html">Member Login</a>
+  </div>
+</section>
+<div class="container">
+  <h2 class="page-title">Library at a Glance</h2>
+  <p class="page-sub">Live statistics from our collection</p>
+  <div class="grid grid-3">
+    <div class="stat-card">
+      <div class="stat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
+      <div><div class="stat-num" id="stat-total">—</div><div class="stat-label">Total Books</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6s3-2 8-2 8 2 8 2v13s-3-2-8-2-8 2-8 2V6z"/><path d="M18 6s3-2 4-2v13"/></svg></div>
+      <div><div class="stat-num" id="stat-copies">—</div><div class="stat-label">Total Copies</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M9 22V12h6v10"/></svg></div>
+      <div><div class="stat-num" id="stat-cats">—</div><div class="stat-label">Categories</div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:26px">
+    <h3>Our Collections</h3>
+    <div id="cat-chips"><span style="color:var(--muted)">Loading…</span></div>
+  </div>
+  <div class="card" style="margin-top:26px">
+    <h3>About the Library</h3>
+    <p style="color:var(--muted);font-size:.95rem">The Department of Geography Library supports students and researchers with a specialized collection covering Human Geography, Physical Geography, Geographical Information Systems and Remote Sensing. Members of the ERF (Geography society) additionally enjoy access to our restricted ERF collection.</p>
+  </div>
+</div>
+<script src="/js/home.js"></script>
+<footer class="site">Department of Geography Library Management System &nbsp;·&nbsp; <strong>Created by Naveen Dissanayake</strong></footer>
+<script src="/js/common.js"></script>
+</body>
+</html>

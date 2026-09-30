@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Dept. of Geography Library</title>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="container">
+  <h1 class="page-title">Admin Dashboard</h1>
+  <p class="page-sub">Manage books, categories, ERF members and export library data</p>
+
+  <div class="grid grid-3" style="margin-bottom:26px">
+    <div class="stat-card"><div class="stat-icon">📚</div><div><div class="stat-num" id="stat-total">—</div><div class="stat-label">Total Books</div></div></div>
+    <div class="stat-card"><div class="stat-icon">📖</div><div><div class="stat-num" id="stat-copies">—</div><div class="stat-label">Total Copies</div></div></div>
+    <div class="stat-card"><div class="stat-icon">👥</div><div><div class="stat-num" id="stat-users">—</div><div class="stat-label">Users (<span id="stat-erf">0</span> ERF)</div></div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="books">📚 Books</button>
+    <button class="tab-btn" data-tab="categories">🏷️ Categories</button>
+    <button class="tab-btn" data-tab="erf">🔐 ERF Members</button>
+    <button class="tab-btn" data-tab="export">📄 Export &amp; Stats</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-books">
+    <div class="toolbar">
+      <input class="input" id="book-search" placeholder="Search books…">
+      <select class="input" id="book-cat-filter" style="max-width:210px"></select>
+      <button class="btn btn-primary" onclick="openBookModal()">+ Add Book</button>
+    </div>
+    <p id="book-count" style="color:var(--muted);font-size:.9rem"></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ID</th><th>Title / Author</th><th>Category</th><th>Year</th><th>ISBN</th><th>Copies</th><th>Shelf</th><th>Actions</th></tr></thead>
+      <tbody id="book-rows"></tbody>
+    </table></div>
+  </div>
+
+  <div class="tab-panel" id="tab-categories">
+    <form id="cat-form" class="toolbar" style="max-width:520px">
+      <input class="input" id="new-cat" placeholder="New category name" required>
+      <button class="btn btn-primary" type="submit">Add Category</button>
+    </form>
+    <div id="cat-error" class="alert alert-error"></div>
+    <div class="card"><h3>Current Categories</h3><div id="cat-list"></div></div>
+  </div>
+
+  <div class="tab-panel" id="tab-erf">
+    <p class="page-sub">ERF Books are restricted. Only approved ERF members can view them.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ID</th><th>Username</th><th>Role</th><th>ERF Access</th><th>Action</th></tr></thead>
+      <tbody id="user-rows"></tbody>
+    </table></div>
+  </div>
+
+  <div class="tab-panel" id="tab-export">
+    <div class="card">
+      <h3>Category Summary</h3>
+      <div id="cat-chips"></div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Export Library Data</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px">Download every book record (all fields) as a CSV file.</p>
+      <button class="btn btn-primary" onclick="exportCsv()">⬇ Export Library Data (CSV)</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="book-modal">
+  <div class="modal">
+    <h2 id="modal-title">Add New Book</h2>
+    <div id="form-error" class="alert alert-error"></div>
+    <form id="book-form">
+      <div class="form-grid">
+        <div class="full"><label class="f">Book Title *</label><input class="input" id="b-title" required></div>
+        <div><label class="f">Author Name *</label><input class="input" id="b-author" required></div>
+        <div><label class="f">Category *</label><select class="input" id="b-category" required></select></div>
+        <div><label class="f">Publisher</label><input class="input" id="b-publisher"></div>
+        <div><label class="f">Publication Year</label><input class="input" id="b-year" type="number" min="0" max="2100"></div>
+        <div><label class="f">ISBN Number</label><input class="input" id="b-isbn"></div>
+        <div><label class="f">Language</label><input class="input" id="b-language" placeholder="e.g. English"></div>
+        <div><label class="f">Number of Copies</label><input class="input" id="b-copies" type="number" min="0" value="1"></div>
+        <div><label class="f">Shelf Location</label><input class="input" id="b-shelf" placeholder="e.g. HG-03-A"></div>
+        <div class="full"><label class="f">Description</label><textarea class="input" id="b-desc"></textarea></div>
+        <div class="full"><label class="f">Book Cover Image (optional)</label><input class="input" id="b-image" type="file" accept="image/*"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" onclick="closeBookModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Book</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/admin.js"></script>
+<footer class="site">Department of Geography Library Management System &nbsp;·&nbsp; <strong>Created by Naveen Dissanayake</strong></footer>
+<script src="/js/common.js"></script>
+</body>
+</html>
